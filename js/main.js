@@ -26,7 +26,7 @@
 
   /* ---------- Site-wide details ---------- */
   const fields = {
-    name: S.name, phone: S.phone, email: S.email, address: S.address, hours: S.hours,
+    name: S.name, contactPerson: S.contactPerson, phone: S.phone, email: S.email, address: S.address, hours: S.hours,
     since: S.since, years
   };
   $$('[data-site]').forEach((el) => {

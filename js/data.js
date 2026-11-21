@@ -13,10 +13,11 @@
 window.SITE = {
   name: 'Udhaya Builders',
   since: 2008,                          // "years of excellence" is computed from this
-  phone: '+91 98765 43210',             // TODO: replace with real number
-  whatsapp: '919876543210',             // TODO: country code + number, digits only
+  contactPerson: 'A.R. Senthil Kumar',
+  phone: '+91 98655 16154',
+  whatsapp: '919865516154',             // country code + number, digits only
   email: 'info@udhayabuilders.com',     // TODO: replace with real email
-  address: 'Tamil Nadu, India',         // TODO: full office address
+  address: 'Trichy, Tamil Nadu',        // base location
   hours: 'Mon – Sat · 9:00 AM – 7:00 PM',
   social: {
     instagram: '#',
