@@ -388,7 +388,10 @@
     return $$('.wi', el);
   };
 
+  let introDone = false;
   const heroIntro = () => {
+    if (introDone) return;
+    introDone = true;
     startHero();
     if (!animate) return;
     const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
@@ -508,6 +511,17 @@
           onComplete: () => { preloader.remove(); ScrollTrigger.refresh(); }
         });
         gsap.delayedCall(0.55, heroIntro);
+        // safety net: if animation frames are throttled (battery saver, background tab),
+        // never leave the visitor stuck behind the preloader
+        setTimeout(() => {
+          if (!preloader.isConnected) return;
+          gsap.killTweensOf(preloader);
+          preloader.remove();
+          heroIntro();
+          gsap.set('.hero__title .line > span', { yPercent: 0 });
+          gsap.set('.hero__eyebrow, .hero__lead, .hero__actions, .hero__bottom', { y: 0, opacity: 1 });
+          ScrollTrigger.refresh();
+        }, 2500);
       } else {
         preloader.remove();
         heroIntro();
